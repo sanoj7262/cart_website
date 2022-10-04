@@ -1,0 +1,50 @@
+{% extends 'Quest_app/layouts/main.html' %}
+
+{% block title %}
+    <title>Update</title>
+{% endblock title %}
+
+{% block content %}
+<div class="container" style="margin-top:70px;">
+    <div class="row">
+    <div class="col-12"><h1>Update Card_details</h1></div>
+    <hr style="border-color:#b8bfc2">
+    {% include 'Quest_app/include/message.html' %}
+   
+    </div>
+    <section class="py-4 my-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-6">
+                    <form method="POST" action="{% url 'update_record_2' modify.id %}">
+                        {% comment %} {{form.as_p}} {% endcomment %}
+                        {% csrf_token %}
+                        
+                        <div class="mb-4">
+                            <label for="" class="form-label">Enter card details</label>
+                        <input type="number" name="card_number" id="card_number" class="form-control" value="{{modify.Card_Number}}">
+                        </div>
+                        <div class="mb-4">
+                            <label for="" class="form-label">Enter Expiry date</label>
+                            <input type="text" name="expiry" id="holdernmae" class="form-control" value="{{modify.Expiry_details}}">
+                            </div>
+                   
+                        <div class="mb-4">
+                            <label for="" class="form-label">Cardholder Name</label>
+                        <input type="text" name="holdername" id="holdernmae" class="form-control"  value="{{modify.Cardholder_Name}}">
+                        </div>
+
+                        <button type="submit" class="btn btn-primary">Update</button>
+                        
+                    </form>
+                   
+                        
+                </div>
+
+            </div>
+        </div>
+
+    </section>
+    
+</div>
+{% endblock content %}
